@@ -19,54 +19,96 @@ body {
     margin: 0;
 }
 
-nav {
-  background: var(--color-white);
-  position: sticky;
-  top: 0;
-  padding: 10px 50px;
-  border-bottom: 3px solid var(--color-gray);
-  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.4);
+header {
+  background: linear-gradient(90deg, #222, #444);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
   z-index: 999;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap;
+}
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+.logo span {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: "Playfair Display", serif;
+  cursor: pointer;
 }
 
-nav img {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  margin-right: auto;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-nav a {
-  color: var(--color-black);
+.nav-links a {
+  color: #fff;
   text-decoration: none;
   font-size: 1.1rem;
-  margin-left: 20px;
-  transition: 0.3s;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
 }
 
-nav a:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--color-gray);
+.nav-links a:hover {
+  background: #fff;
+  color: #222;
 }
 
-.img1 img {
-  opacity: 0;
-  transform: scale(0.5);
-  animation: popUp 0.7s ease-out forwards;
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
 }
 
-@keyframes popUp {
-  from {
-    opacity: 0;
-    transform: scale(0.5);
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 25px;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 25px;
+    top: 18px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 55px;
+    background: #333;
+    border-top: 1px solid #555;
+    padding: 10px 0;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: left;
+    padding: 10px 20px;
+    border-radius: 0;
+  }
+
+  .nav-links.active {
+    display: flex;
   }
 }
 
